@@ -8,8 +8,9 @@ New-Item -Path 'C:\temp\caddis' -ItemType Directory -force
 # Delete any previous Caddis zips
 Remove-Item 'C:\temp\caddis-agent-v1.zip' -Force -WarningAction SilentlyContinue
 
-# Download Agent
-$Url = 
+# Download Agent - READ ME!
+$Url = !!!! ENTER THE URL OF THE CADDIS AGENT -- MUST BE ZIPPED !!!
+$ZipFile = 'C:\temp\caddis-agent-v1.zip'
 Invoke-WebRequest -Uri $Url -OutFile $ZipFile 
 
 # Unzip and tidy up
