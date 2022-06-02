@@ -1,6 +1,9 @@
 # This will force PowerShell to use TLS 1.2 just in case TLS 1.0 or 1.1 is active, and we know how bad that is :)
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 
+# CONFIGURATION - REQUIRED
+$Url = 'ENTER THE URL OF THE CADDIS AGENT -- MUST BE ZIPPED'
+
 #Setup temp folders just in-case
 New-Item -Path 'C:\temp' -ItemType Directory -force
 New-Item -Path 'C:\temp\caddis' -ItemType Directory -force
@@ -8,8 +11,7 @@ New-Item -Path 'C:\temp\caddis' -ItemType Directory -force
 # Delete any previous Caddis zips
 Remove-Item 'C:\temp\caddis-agent-v1.zip' -Force -WarningAction SilentlyContinue
 
-# Download Agent - READ ME!
-$Url = !!!! ENTER THE URL OF THE CADDIS AGENT -- MUST BE ZIPPED !!!
+# Download Agent
 $ZipFile = 'C:\temp\caddis-agent-v1.zip'
 Invoke-WebRequest -Uri $Url -OutFile $ZipFile 
 
